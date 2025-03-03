@@ -4,10 +4,24 @@ export default function SignUpForm({ setToken }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const [usernameError, setUsernameError] = useState(null);
+    const [passwordError, setPasswordError] = useState(null);
 
     async function handleSubmit(event) {
         event.preventDefault();
     
+        setUsernameError(null);
+        setPasswordError(null);
+
+        if (username.length < 8) {
+            setUsernameError("Username must be at least 8 characters.");
+            return;
+        }
+
+        if (password.length < 6) {
+            setPasswordError("Password must be at least 6 characters.");
+            return;
+        }
 
         try {
 
