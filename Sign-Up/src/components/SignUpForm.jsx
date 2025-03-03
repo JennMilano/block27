@@ -58,6 +58,7 @@ export default function SignUpForm({ setToken }) {
                         onChange={(e) => setUsername(e.target.value)} 
                     />
                 </label>
+                {usernameError && <p style={{color: 'red'}}>{usernameError}</p>} {/*Display username error*/}
                 <label>
                     Password: 
                     <input 
@@ -67,6 +68,7 @@ export default function SignUpForm({ setToken }) {
                         onChange={(e) => setPassword(e.target.value)} 
                     />
                 </label>
+                {passwordError && <p style={{color: 'red'}}>{passwordError}</p>} {/* Display password error */}
                 <button>Submit</button>
             </form>
         </section>
